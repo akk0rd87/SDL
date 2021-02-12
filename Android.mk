@@ -32,7 +32,6 @@ LOCAL_SRC_FILES := \
 	$(wildcard $(LOCAL_PATH)/src/haptic/android/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/joystick/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/joystick/android/*.c) \
-	$(wildcard $(LOCAL_PATH)/src/joystick/hidapi/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/joystick/virtual/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/loadso/dlopen/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/locale/*.c) \
@@ -56,7 +55,7 @@ LOCAL_SRC_FILES := \
 	$(wildcard $(LOCAL_PATH)/src/video/yuv2rgb/*.c) \
 	$(wildcard $(LOCAL_PATH)/src/test/*.c))
 
-LOCAL_SHARED_LIBRARIES := hidapi
+#LOCAL_SHARED_LIBRARIES := hidapi
 
 LOCAL_CFLAGS += -DGL_GLEXT_PROTOTYPES
 LOCAL_CFLAGS += \
@@ -126,16 +125,16 @@ include $(BUILD_STATIC_LIBRARY)
 #
 ###########################
 
-include $(CLEAR_VARS)
-
-LOCAL_CPPFLAGS += -std=c++11
-
-LOCAL_SRC_FILES := src/hidapi/android/hid.cpp
-
-LOCAL_MODULE := libhidapi
-LOCAL_LDLIBS := -llog
-
-include $(BUILD_SHARED_LIBRARY)
+#include $(CLEAR_VARS)
+#
+#LOCAL_CPPFLAGS += -std=c++11
+#
+#LOCAL_SRC_FILES := src/hidapi/android/hid.cpp
+#
+#LOCAL_MODULE := libhidapi
+#LOCAL_LDLIBS := -llog
+#
+#include $(BUILD_SHARED_LIBRARY)
 
 $(call import-module,android/cpufeatures)
 
